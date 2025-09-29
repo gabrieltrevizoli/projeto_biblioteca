@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <!-- Se for edição mostra 'Editar', senão mostra 'Novo' -->
+    <h2>{% if object %}Editar Livro{% else %}Novo Livro{% endif %}</h2>
+
+    <!-- Formulário para criar/editar -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Renderiza os campos do formulário -->
+        
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="{% url 'livro_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
