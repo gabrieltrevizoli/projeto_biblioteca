@@ -1,0 +1,31 @@
+# Arquivos do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+venv/
+ENV/
+env/
+.venv/
+
+# Banco de dados SQLite
+*.sqlite3
+*.db
+
+# Arquivos de migração do Django (gerados automaticamente)
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Arquivos de configuração local
+*.env
+*.local
+*.secret
+*.log
+
+# Arquivos do VSCode
+.vscode/
+
+# Arquivos do Windows
+Thumbs.db
+Desktop.ini
