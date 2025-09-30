@@ -1,0 +1,18 @@
+{% extends "livros/base.html" %}
+
+{% block title %}Excluir Livro{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+  <h2 class="mb-3 text-danger">Excluir Livro</h2>
+  <p>Tem certeza que deseja excluir o livro <strong>"{{ object.titulo }}"</strong>?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="d-flex justify-content-end mt-3">
+      <a href="{% url 'livro_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Excluir</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

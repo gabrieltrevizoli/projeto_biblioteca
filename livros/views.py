@@ -6,7 +6,7 @@ from .forms import LivroForm
 # View para listar todos os livros cadastrados
 class LivroListView(ListView):
     model = Livro
-    template_name = 'livros/livro_list.html'  # ✅ caminho corrigido
+    template_name = 'livros/listar_livros.html'
     context_object_name = 'livros'
 
 
@@ -14,7 +14,7 @@ class LivroListView(ListView):
 class LivroCreateView(CreateView):
     model = Livro
     form_class = LivroForm
-    template_name = 'livros/livro_form.html'  # ✅ corrigido para o formulário
+    template_name = 'livros/criar_livro.html' 
     success_url = reverse_lazy('livro_list')
 
 
@@ -22,12 +22,12 @@ class LivroCreateView(CreateView):
 class LivroUpdateView(UpdateView):
     model = Livro
     form_class = LivroForm
-    template_name = 'livros/livro_form.html'  # ✅ continua usando o form
+    template_name = 'livros/atualizar_livro.html' 
     success_url = reverse_lazy('livro_list')
 
 
 # View para excluir um livro
 class LivroDeleteView(DeleteView):
     model = Livro
-    template_name = 'livros/livro_confirm_delete.html'  # ✅ caminho correto
+    template_name = 'livros/deletar_livro.html' 
     success_url = reverse_lazy('livro_list')

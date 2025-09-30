@@ -1,0 +1,18 @@
+{% extends "livros/base.html" %}
+
+{% block title %}Cadastrar Livro{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+  <h2 class="mb-4">Cadastrar Novo Livro</h2>
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="d-flex justify-content-end mt-3">
+      <a href="{% url 'livro_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
