@@ -1,0 +1,44 @@
+{% extends "reutilizaveis/base.html" %}
+
+
+{% block title %}Lista de Autores{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Lista de Autores</h2>
+
+<div class="mb-3">
+    <a href="{% url 'autor_create' %}" class="btn btn-success">+ Novo Autor</a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Nacionalidade</th>
+                    <th>Data de Nascimento</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for autor in autores %}
+                <tr>
+                    <td>{{ autor.nome }}</td>
+                    <td>{{ autor.nacionalidade|default:"Não informado" }}</td>
+                    <td>{{ autor.data_nascimento|date:"d/m/Y"|default:"Não informado" }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'autor_update' autor.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'autor_delete' autor.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center">Nenhum autor cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

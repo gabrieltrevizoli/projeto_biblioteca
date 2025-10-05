@@ -1,0 +1,24 @@
+{% extends "reutilizaveis/base.html" %}
+
+
+{% block title %}Excluir Autor{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+  <h2 class="mb-3 text-danger">Excluir Autor</h2>
+  
+  <p>Tem certeza que deseja excluir o autor <strong>"{{ object.nome }}"</strong>?</p>
+  
+  <div class="alert alert-warning" role="alert">
+    <strong>Atenção:</strong> Esta ação não pode ser desfeita. Todos os livros associados a este autor também serão excluídos do sistema.
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="d-flex justify-content-end mt-4">
+      <a href="{% url 'autor_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

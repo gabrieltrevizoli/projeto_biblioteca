@@ -1,0 +1,18 @@
+{% extends "reutilizaveis/base.html" %}
+
+{% block title %}Deletar Editora{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h2 class="mb-3 text-danger">Deletar Editora</h2>
+    <p>Tem certeza que deseja Deletar a editora <strong>"{{ object.nome }}"</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'editora_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Excluir</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

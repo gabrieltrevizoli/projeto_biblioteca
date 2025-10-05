@@ -1,18 +1,48 @@
-{% extends "livros/base.html" %}
+{% extends "reutilizaveis/base.html" %}
 
-{% block title %}Cadastrar Livro{% endblock %}
+{% load widget_tweaks %} {% block title %}Cadastrar Livro{% endblock %}
 
 {% block content %}
-<div class="card shadow p-4">
-  <h2 class="mb-4">Cadastrar Novo Livro</h2>
-  <form method="post" class="needs-validation" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
+<h2 class="mb-4">Cadastrar Novo Livro</h2>
 
-    <div class="d-flex justify-content-end mt-3">
-      <a href="{% url 'livro_list' %}" class="btn btn-secondary me-2">Cancelar</a>
-      <button type="submit" class="btn btn-primary">Salvar</button>
+<form method="post" novalidate>
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        {{ form.titulo.label_tag }}
+        {{ form.titulo|add_class:"form-control" }}
+        {% if form.titulo.errors %}
+            <div class="text-danger">{{ form.titulo.errors }}</div>
+        {% endif %}
     </div>
-  </form>
-</div>
-{% endblock %}
+
+    <div class="mb-3">
+        {{ form.autor.label_tag }}
+        {{ form.autor|add_class:"form-control" }}
+        {% if form.autor.errors %}
+            <div class="text-danger">{{ form.autor.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.editora.label_tag }}
+        {{ form.editora|add_class:"form-control" }}
+        {% if form.editora.errors %}
+            <div class="text-danger">{{ form.editora.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.categoria.label_tag }}
+        {{ form.categoria|add_class:"form-control" }}
+        {% if form.categoria.errors %}
+            <div class="text-danger">{{ form.categoria.errors }}</div>
+        {% endif %}
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+    <a href="{% url 'livro_list' %}" class="btn btn-secondary">Voltar</a>
+</form>
+{% endblock %}

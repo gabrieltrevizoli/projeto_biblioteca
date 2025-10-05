@@ -1,0 +1,34 @@
+{% extends "reutilizaveis/base.html" %}
+
+
+{% block title %}Cadastrar Autor{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+    <h2 class="mb-4">Cadastrar Novo Autor</h2>
+    
+    <form method="post" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="{{ form.nome.id_for_label }}" class="form-label">{{ form.nome.label }}</label>
+            {{ form.nome }}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.nacionalidade.id_for_label }}" class="form-label">{{ form.nacionalidade.label }}</label>
+            {{ form.nacionalidade }}
+        </div>
+
+        <div class="mb-3">
+            <label for="{{ form.data_nascimento.id_for_label }}" class="form-label">{{ form.data_nascimento.label }}</label>
+            {{ form.data_nascimento }}
+        </div>
+        
+        <div class="d-flex justify-content-end mt-4">
+            <a href="{% url 'autor_list' %}" class="btn btn-secondary me-2">Cancelar</a>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -24,6 +24,16 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    
+class Tag(models.Model):
+    nome = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        ordering = ['nome']
 
 
 class Livro(models.Model):
@@ -46,3 +56,9 @@ class Emprestimo(models.Model):
 
     def __str__(self):
         return f"{self.livro.titulo} emprestado para {self.usuario.username}"
+    
+        
+
+        
+        
+        

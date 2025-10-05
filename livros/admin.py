@@ -31,7 +31,7 @@ class LivroAdmin(admin.ModelAdmin):
     search_fields = ('titulo', 'autor_nome', 'editora_nome', 'isbn')
     list_filter = ('categoria', 'editora', 'ano_publicacao')
     ordering = ('titulo',)
-    autocomplete_fields = ('autor', 'editora', 'categoria')  # 🔍 autocomplete em campos ForeignKey
+    autocomplete_fields = ('autor', 'editora', 'categoria')  
 
 
 @admin.register(Emprestimo)

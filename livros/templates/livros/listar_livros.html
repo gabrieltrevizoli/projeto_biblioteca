@@ -1,30 +1,32 @@
-{% extends "livros/base.html" %}
+{% extends "reutilizaveis/base.html" %}
 
 {% block title %}Lista de Livros{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Lista de Livros</h1>
+<h2 class="mb-4">Lista de Livros</h2>
+
+<a href="{% url 'livro_create' %}" class="btn btn-success mb-3">+ Novo Livro</a>
 
 <table class="table table-striped table-hover">
     <thead class="table-dark">
         <tr>
-            <th>ID</th>
             <th>Título</th>
             <th>Autor</th>
-            <th>Ano</th>
-            <th>Ações</th>
+            <th>Editora</th>
+            <th>Ano de Publicação</th>
+            <th class="text-end">Ações</th>
         </tr>
     </thead>
     <tbody>
         {% for livro in livros %}
         <tr>
-            <td>{{ livro.id }}</td>
             <td>{{ livro.titulo }}</td>
             <td>{{ livro.autor }}</td>
-            <td>{{ livro.ano }}</td>
-            <td>
-                <a href="{% url 'livro_update' livro.id %}" class="btn btn-sm btn-warning">Editar</a>
-                <a href="{% url 'livro_delete' livro.id %}" class="btn btn-sm btn-danger">Excluir</a>
+            <td>{{ livro.editora }}</td>
+            <td>{{ livro.ano_publicacao }}</td>
+            <td class="text-end">
+                <a href="{% url 'livro_update' livro.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{% url 'livro_delete' livro.pk %}" class="btn btn-danger btn-sm">Excluir</a>
             </td>
         </tr>
         {% empty %}
@@ -34,4 +36,4 @@
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}
+{% endblock %}
