@@ -40,7 +40,29 @@
         {% endif %}
     </div>
 
-    
+    <div class="mb-3">
+        {{ form.ano_publicacao.label_tag }}
+        {{ form.ano_publicacao|add_class:"form-control"|attr:"type:number" }}
+        {% if form.ano_publicacao.errors %}
+            <div class="text-danger">{{ form.ano_publicacao.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.isbn.label_tag }}
+        {{ form.isbn|add_class:"form-control" }}
+        {% if form.isbn.errors %}
+            <div class="text-danger">{{ form.isbn.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.tags.label_tag }}
+        {{ form.tags }} 
+        {% if form.tags.errors %}
+            <div class="text-danger">{{ form.tags.errors }}</div>
+        {% endif %}
+    </div>
 
     <button type="submit" class="btn btn-success">Cadastrar</button>
     <a href="{% url 'livro_list' %}" class="btn btn-secondary">Voltar</a>

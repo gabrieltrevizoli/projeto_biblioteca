@@ -1,13 +1,24 @@
 from django import forms
 from .models import Livro, Autor, Categoria, Tag, Editora
 
+#forms livro , autor, categoria, tag, editora
 
-# Forms de Livros
+# Forms dos Livros
 class LivroForm(forms.ModelForm):
     class Meta:
-        model = Livro            # Modelo que vai ser usado no formulário
-        fields = '__all__'       # Inclui todos os campos do modelo
-
+        model = Livro
+        fields = [
+            'titulo', 
+            'autor', 
+            'editora', 
+            'categoria', 
+            'ano_publicacao',  
+            'isbn',            
+            'tags'
+        ]
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple(), 
+        }
 
 # Forms de Autores
 class AutorForm(forms.ModelForm):
@@ -24,7 +35,7 @@ class AutorForm(forms.ModelForm):
         }
     
     
-# Forms de Catgorias    
+# Forms de Categorias    
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria

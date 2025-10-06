@@ -29,9 +29,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             const Toast = Swal.mixin({
                 toast: true,
-                position: 'top-right', // Posição no canto inferior esquerdo
+                position: 'top-right', 
                 showConfirmButton: false,
-                timer: 3500, // Desaparece em 3.5 segundos
+                timer: 3500, 
                 timerProgressBar: true,
                 didOpen: (toast) => {
                     toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -41,7 +41,7 @@
 
             {% for message in messages %}
                 Toast.fire({
-                    icon: '{{ message.tags }}', // Mapeia 'success', 'error', 'warning', 'info' para ícones
+                    icon: '{{ message.tags }}', 
                     title: '{{ message }}'
                 });
             {% endfor %}

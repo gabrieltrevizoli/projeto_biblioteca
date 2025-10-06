@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+#Models dos Livros, Autores, Editoras, Categorias, Tags e Empréstimos
+
 class Autor(models.Model):
     nome = models.CharField(max_length=100)
     nacionalidade = models.CharField(max_length=50, blank=True, null=True)
@@ -27,19 +29,17 @@ class Categoria(models.Model):
     
     
 class Tag(models.Model):
-    nome = models.CharField(max_length=50, unique=True)
+    nome = models.CharField(max_length=50, unique=True) # unique=True para não ter tags repetidas
 
     def __str__(self):
         return self.nome
-
-    class Meta:
-        ordering = ['nome']
 
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=200)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     ano_publicacao = models.PositiveIntegerField()
     isbn = models.CharField(max_length=13, unique=True)
