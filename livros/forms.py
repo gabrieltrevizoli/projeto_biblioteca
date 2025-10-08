@@ -25,7 +25,7 @@ class AutorForm(forms.ModelForm):
     class Meta:
         model = Autor
         fields = ['nome', 'nacionalidade', 'data_nascimento']
-        # Adicionando classes do Bootstrap e um widget de data para melhorar a aparência
+       
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'nacionalidade': forms.TextInput(attrs={'class': 'form-control'}),
@@ -59,8 +59,8 @@ class TagForm(forms.ModelForm):
 class EditoraForm(forms.ModelForm):
     class Meta:
         model = Editora
-        # Remova 'site' da lista
-        fields = ['nome', 'cidade', 'estado'] # ou apenas os campos que quer no form
+        
+        fields = ['nome', 'cidade', 'estado'] 
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome da editora'}),
             'cidade': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Cidade'}),

@@ -57,7 +57,7 @@ def logout_view(request):
 
 class LivroListView(LoginRequiredMixin, ListView):
     model = Livro
-    template_name = 'livros/listar_livros.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'livros/listar_livros.html' 
     context_object_name = 'livros'
     login_url = 'login'
     redirect_field_name = 'next'
@@ -66,7 +66,7 @@ class LivroListView(LoginRequiredMixin, ListView):
 class LivroCreateView(LoginRequiredMixin, CreateView):
     model = Livro
     form_class = LivroForm
-    template_name = 'livros/criar_livro.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'livros/criar_livro.html' 
     success_url = reverse_lazy('livro_list')
     login_url = 'login'
     redirect_field_name = 'next'
@@ -79,7 +79,7 @@ class LivroCreateView(LoginRequiredMixin, CreateView):
 class LivroUpdateView(LoginRequiredMixin, UpdateView):
     model = Livro
     form_class = LivroForm
-    template_name = 'livros/atualizar_livro.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'livros/atualizar_livro.html' 
     success_url = reverse_lazy('livro_list')
     login_url = 'login'
     redirect_field_name = 'next'
@@ -91,7 +91,7 @@ class LivroUpdateView(LoginRequiredMixin, UpdateView):
 
 class LivroDeleteView(LoginRequiredMixin, DeleteView):
     model = Livro
-    template_name = 'livros/deletar_livro.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'livros/deletar_livro.html' 
     success_url = reverse_lazy('livro_list')
     login_url = 'login'
     redirect_field_name = 'next'
@@ -106,14 +106,14 @@ class LivroDeleteView(LoginRequiredMixin, DeleteView):
 
 class AutorListView(LoginRequiredMixin, ListView):
     model = Autor
-    template_name = 'autores/listar_autores.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'autores/listar_autores.html' 
     context_object_name = 'autores'
     login_url = 'login'
 
 class AutorCreateView(LoginRequiredMixin, CreateView):
     model = Autor
     form_class = AutorForm
-    template_name = 'autores/criar_autor.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'autores/criar_autor.html' 
     success_url = reverse_lazy('autor_list')
     login_url = 'login'
 
@@ -124,7 +124,7 @@ class AutorCreateView(LoginRequiredMixin, CreateView):
 class AutorUpdateView(LoginRequiredMixin, UpdateView):
     model = Autor
     form_class = AutorForm
-    template_name = 'autores/atualizar_autor.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'autores/atualizar_autor.html' # 
     success_url = reverse_lazy('autor_list')
     login_url = 'login'
 
@@ -134,7 +134,7 @@ class AutorUpdateView(LoginRequiredMixin, UpdateView):
 
 class AutorDeleteView(LoginRequiredMixin, DeleteView):
     model = Autor
-    template_name = 'autores/deletar_autor.html' # ✅ CAMINHO CORRIGIDO
+    template_name = 'autores/deletar_autor.html' 
     success_url = reverse_lazy('autor_list')
     login_url = 'login'
 
@@ -148,7 +148,7 @@ class AutorDeleteView(LoginRequiredMixin, DeleteView):
 # ----------------------------   
 class CategoriaListView(LoginRequiredMixin, ListView):
     model = Categoria
-    template_name = 'categorias/listar_categoria.html' # ✅ NOVO CAMINHO
+    template_name = 'categorias/listar_categoria.html' 
     context_object_name = 'categorias'
     login_url = 'login'
     redirect_field_name = 'next'
@@ -156,8 +156,7 @@ class CategoriaListView(LoginRequiredMixin, ListView):
 class CategoriaCreateView(LoginRequiredMixin, CreateView):
     model = Categoria
     form_class = CategoriaForm
-    template_name = 'categorias/criar_categoria.html' # ✅ NOVO CAMINHO
-    success_url = reverse_lazy('categoria_list')
+    template_name = 'categorias/criar_categoria.html' 
     login_url = 'login'
     redirect_field_name = 'next'
 
@@ -189,7 +188,7 @@ class CategoriaUpdateView(LoginRequiredMixin, UpdateView):
 
 class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
     model = Categoria
-    template_name = 'categorias/deletar_categoria.html' # ✅ NOVO CAMINHO
+    template_name = 'categorias/deletar_categoria.html' 
     success_url = reverse_lazy('categoria_list')
     login_url = 'login'
     redirect_field_name = 'next'
