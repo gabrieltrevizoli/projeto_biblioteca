@@ -10,9 +10,9 @@ from django.contrib import messages
 from .models import Livro, Autor, Categoria, Tag, Editora
 from .forms import LivroForm, AutorForm, CategoriaForm, TagForm, EditoraForm
 
-# ----------------------------
+
 # VIEWS DE AUTENTICAÇÃO
-# ----------------------------
+
 
 def cadastrar_view(request):
     if request.method == "POST":
@@ -51,9 +51,9 @@ def logout_view(request):
     return redirect('login')
 
 
-# ----------------------------
+
 # VIEWS DE LIVROS (CRUD)
-# ----------------------------
+
 
 class LivroListView(LoginRequiredMixin, ListView):
     model = Livro
@@ -100,9 +100,9 @@ class LivroDeleteView(LoginRequiredMixin, DeleteView):
         messages.success(request, "Livro excluído com sucesso!")
         return super().delete(request, *args, **kwargs)
 
-# ----------------------------
+
 # VIEWS DE AUTORES (CRUD)
-# ----------------------------
+
 
 class AutorListView(LoginRequiredMixin, ListView):
     model = Autor
@@ -143,9 +143,9 @@ class AutorDeleteView(LoginRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
  
  
-# ----------------------------
+
 # VIEWS DE Categorias (CRUD)
-# ----------------------------   
+   
 class CategoriaListView(LoginRequiredMixin, ListView):
     model = Categoria
     template_name = 'categorias/listar_categoria.html' 
@@ -172,7 +172,7 @@ class CategoriaCreateView(LoginRequiredMixin, CreateView):
 class CategoriaUpdateView(LoginRequiredMixin, UpdateView):
     model = Categoria
     form_class = CategoriaForm
-    template_name = 'categorias/atualizar_categoria.html' # ✅ REUTILIZANDO O MESMO FORMULÁRIO
+    template_name = 'categorias/atualizar_categoria.html' 
     success_url = reverse_lazy('categoria_list')
     login_url = 'login'
     redirect_field_name = 'next'
@@ -200,9 +200,9 @@ class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
 
 
 
-# ----------------------------
+
 # VIEWS DE Tag(CRUD)
-# ----------------------------  
+
 
 class TagListView(LoginRequiredMixin, ListView):
     model = Tag
@@ -247,9 +247,9 @@ class TagDeleteView(LoginRequiredMixin, DeleteView):
         return super().form_valid(form)
 
 
-# ----------------------------
+
 # VIEWS DE EDITORA (CRUD)
-# ----------------------------
+
 
 class EditoraListView(LoginRequiredMixin, ListView):
     model = Editora
@@ -284,7 +284,7 @@ class EditoraUpdateView(LoginRequiredMixin, UpdateView):
 
 class EditoraDeleteView(LoginRequiredMixin, DeleteView):
     model = Editora
-    template_name = 'editoras/excluir_editora.html'
+    template_name = 'editoras/deletar_editora.html'
     success_url = reverse_lazy('editora_list')
     context_object_name = 'editoras'
     login_url = 'login'
